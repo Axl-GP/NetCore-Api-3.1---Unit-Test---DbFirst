@@ -18,6 +18,7 @@ namespace BahiaRealEstate.Models
         public bahiaEstateContext(DbContextOptions<bahiaEstateContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<Propiedad> Propiedad { get; set; }

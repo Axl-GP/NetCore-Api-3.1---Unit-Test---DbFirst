@@ -134,3 +134,4 @@ D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\BahiaRealEs
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\BahiaRealEstate\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\BahiaRealEstate\obj\Debug\netcoreapp3.1\BahiaRealEstate.MvcApplicationPartsAssemblyInfo.cache
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\BahiaRealEstate\obj\Debug\netcoreapp3.1\BahiaRealEstate.csprojAssemblyReference.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\BahiaRealEstate\obj\Debug\netcoreapp3.1\BahiaRealEstate.csproj.CoreCompileInputs.cache

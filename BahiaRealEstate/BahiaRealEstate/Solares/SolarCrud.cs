@@ -18,13 +18,20 @@ namespace BahiaRealEstate.Services
 
         public async Task<List<Solar>> getSolares()
         {
-            var resultado = await context.Solar.Include(x => x.SolarFoto).Include(y => y.SolarDireccion).Include(z => z.SolarPrecio).ThenInclude(z=>z.Moneda).ToListAsync();
+            var resultado = await context.Solar.Include(x => x.SolarFoto).Include(y => y.SolarDireccion)
+                .Include(z => z.SolarPrecio)
+                .ThenInclude(z=>z.Moneda)
+                .ToListAsync();
 
             return resultado;
         }
         public async Task<Solar> getSolar(int id)
         {
-            var resultado = await context.Solar.Include(x => x.SolarFoto).Include(x => x.SolarDireccion).Include(x => x.SolarPrecio).ThenInclude(z => z.Moneda).Where(x => x.Id == id).FirstOrDefaultAsync();
+            var resultado = await context.Solar.Include(x => x.SolarFoto)
+                                               .Include(x => x.SolarDireccion)
+                                               .Include(x => x.SolarPrecio)
+                                               .ThenInclude(z => z.Moneda)
+                                               .Where(x => x.Id == id).FirstOrDefaultAsync();
 
             return resultado;
         }

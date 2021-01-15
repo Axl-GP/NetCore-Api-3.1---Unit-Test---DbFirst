@@ -211,3 +211,5 @@ D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate Test\obj\De
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate Test\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate Test\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate Test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate Test\obj\Debug\netcoreapp3.1\BahiaRealEstate Test.csproj.CoreCompileInputs.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate Test\obj\Debug\netcoreapp3.1\BahiaRealEstate Test.genruntimeconfig.cache

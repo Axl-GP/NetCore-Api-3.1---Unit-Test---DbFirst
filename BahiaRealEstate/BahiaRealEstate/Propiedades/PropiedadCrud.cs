@@ -74,25 +74,25 @@ namespace BahiaRealEstate.Services
 
             return resultado;
         }
-        public async Task<Propiedad> getPropiedad(int id)
+        public async Task<Propiedad> ObtenerPropiedad(int id)
         {
             var resultado = await context.Propiedad.Include(x => x.PropiedadFoto).Include(x => x.PropiedadDireccion).Include(x => x.PropiedadPrecio).Where(x => x.Id == id).FirstOrDefaultAsync();
 
             return resultado;
         }
 
-        public async Task<bool> AddPropiedad(Propiedad propiedad, PropiedadPrecio precio, PropiedadDireccion direccion, List<PropiedadFoto> foto)
+        public bool AgregarPropiedad(Propiedad propiedad, PropiedadPrecio precio, PropiedadDireccion direccion, List<PropiedadFoto> foto)
         {
             try
             {
                  context.Add(propiedad);
-                 await context.AddAsync(precio);
-                 await context.AddAsync(direccion);
+                 context.AddAsync(precio);
+                 context.AddAsync(direccion);
 
                 foreach (PropiedadFoto foto1 in foto)
                 {
                     context.Add(foto1);
-                    await context.SaveChangesAsync();
+                    context.SaveChangesAsync();
                 }
            
                  
