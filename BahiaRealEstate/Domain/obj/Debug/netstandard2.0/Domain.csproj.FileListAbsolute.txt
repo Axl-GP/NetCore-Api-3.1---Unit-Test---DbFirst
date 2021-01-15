@@ -1,9 +1,0 @@
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\bin\Debug\netstandard2.0\Domain.deps.json
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\bin\Debug\netstandard2.0\Domain.dll
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\bin\Debug\netstandard2.0\Domain.pdb
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\obj\Debug\netstandard2.0\Domain.csproj.CoreCompileInputs.cache
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\obj\Debug\netstandard2.0\Domain.dll
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\BahiaRealEstate\Domain\obj\Debug\netstandard2.0\Domain.pdb

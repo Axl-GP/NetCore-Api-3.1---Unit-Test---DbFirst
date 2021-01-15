@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBahia_Estate", "MiBahia_Estate\MiBahia_Estate.csproj", "{98468CBB-B884-4DE0-94BE-8D26AF2E89BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98468CBB-B884-4DE0-94BE-8D26AF2E89BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98468CBB-B884-4DE0-94BE-8D26AF2E89BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98468CBB-B884-4DE0-94BE-8D26AF2E89BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98468CBB-B884-4DE0-94BE-8D26AF2E89BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FD7855B-8C0F-4610-9AE1-CB1F14281774}
+	EndGlobalSection
+EndGlobal
