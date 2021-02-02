@@ -6,68 +6,76 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 using MiBahia_Estate.Services;
+using MiBahia_Estate.Helpers;
+using Microsoft.AspNetCore.Mvc;
 
-namespace MiBahia_Estate.Propiedad
+namespace MiBahia_Estate
 {
     public class PropiedadCRUD:Crud
     {
         private readonly bahia_estateContext _contexto;
+
         public PropiedadCRUD(bahia_estateContext contexto):base(contexto)
         {
             _contexto = contexto;
         }
-
-        public async Task<List<Inmueble>> BusquedaPropiedadesCuartos(int cuartos)
+        [ServiceFilter(typeof(MyFilter))]
+        public async Task<List<Property>> BusquedaPropiedadesCuartos(int cuartos)
         {
             var resultado = await _contexto.Inmuebles.Include(x=>x.Propiedad)
                                                      .Include(x => x.InmuebleFotos)
                                                      .Include(x => x.InmuebleDireccions)
                                                      .Include(x => x.InmueblePrecio)
-                                                     .Where(x=>x.Propiedad.cuartos == cuartos).ToListAsync();
+                                                     .Where(x=>x.Propiedad.Cuartos == cuartos).ToListAsync();
 
             return resultado;
         }
 
-        public async Task<List<Inmueble>> BusquedaPropiedadesDuchas(int duchas)
+        public async Task<List<Property>> BusquedaPropiedadesDuchas(int duchas)
         {
             var resultado = await _contexto.Inmuebles.Include(x => x.Propiedad)
-                                                      .Include(x => x.InmuebleDireccions)
-                                                      .Include(x => x.InmueblePrecio)
-                                                      .Where(x => x.Propiedad.Duchas == duchas).ToListAsync();
+                                                     .Include(x => x.InmuebleDireccions)
+                                                     .Include(x => x.InmueblePrecio)
+                                                     .Where(x => x.Propiedad.Ducha == duchas).ToListAsync();
 
             return resultado;
         }
 
-        public async Task<List<Inmueble>> getPropiedadesDuchaCuarto(int duchas, int cuartos)
+        public async Task<List<Property>> BusquedaPropiedadesDuchaCuarto(int duchas, int cuartos)
         {
             var resultado = await _contexto.Inmuebles.Include(x => x.Propiedad)
-                                                      .Include(x => x.InmuebleDireccions)
-                                                      .Include(x => x.InmueblePrecio)
-                                                      .Where(x => x.Propiedad.Duchas == duchas && x.Propiedad.Cuartos==cuartos).ToListAsync();
+                                                     .Include(x => x.InmuebleDireccions)
+                                                     .Include(x => x.InmueblePrecio)
+                                                     .Where(x => x.Propiedad.Ducha == duchas && x.Propiedad.Cuartos==cuartos).ToListAsync();
             return resultado;
         }
 
-        public async Task<List<Inmueble>> getPropiedadesDuchaDestacado(int duchas, bool destacado)
+        public async Task<List<Property>> BusquedaPropiedadesDuchaDestacado(int duchas, bool destacado)
         {
             var resultado = await _contexto.Inmuebles.Include(x => x.Propiedad)
-                                                      .Include(x => x.InmuebleDireccions)
-                                                      .Include(x => x.InmueblePrecio)
-                                                      .Where(x => x.Propiedad.Duchas == duchas && x.Propiedad.Cuartos == destacado).ToListAsync();
+                                                     .Include(x => x.InmuebleDireccions)
+                                                     .Include(x => x.InmueblePrecio)
+                                                     .Where(x => x.Propiedad.Ducha == duchas && x.Propiedad.Destacado == destacado).ToListAsync();
             return resultado;
-        }
-            return resultado;
+        
         }
 
-        public async Task<List<Propiedad>> getPropiedadesCuartoDestacado(int cuarto, bool destacado)
+        public async Task<List<House>> BusquedaPropiedadesCuartoDestacado(int cuarto, bool destacado)
         {
-            var resultado = await context.Propiedad.Include(x => x.PropiedadFoto).Include(y => y.PropiedadDireccion).Include(z => z.PropiedadPrecio).Where(x => x.Cuartos == cuarto && x.Destacado == destacado).ToListAsync();
+            var resultado = await _contexto.Propiedads.Include(x => x.InmuebleFotos)
+                                                      .Include(y => y.InmuebleDireccions)
+                                                      .Include(z => z.InmueblePrecio)
+                                                      .Where(x => x.Cuartos == cuarto && x.Destacado == destacado).ToListAsync();
 
             return resultado;
         }
 
-        public async Task<List<Propiedad>> getPropiedadesCuartoDuchaDestacado(int cuarto, int ducha, bool destacado)
+        public async Task<List<House>> BusquedaPropiedadesCuartoDuchaDestacado(int cuarto, int ducha, bool destacado)
         {
-            var resultado = await context.Propiedad.Include(x => x.PropiedadFoto).Include(y => y.PropiedadDireccion).Include(z => z.PropiedadPrecio).Where(x => x.Cuartos == cuarto && x.Ducha == ducha && x.Destacado == destacado).ToListAsync();
+            var resultado = await _contexto.Propiedads.Include(x => x.InmuebleFotos)
+                                                      .Include(y => y.InmuebleDireccions)
+                                                      .Include(z => z.InmueblePrecio)
+                                                      .Where(x => x.Cuartos == cuarto && x.Ducha == ducha && x.Destacado == destacado).ToListAsync();
 
             return resultado;
         }

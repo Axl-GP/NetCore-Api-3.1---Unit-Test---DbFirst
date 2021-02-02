@@ -10,12 +10,14 @@ namespace MiBahia_Estate.Services
     public abstract class Crud
     {
         private readonly bahia_estateContext _contexto;
+        private readonly CargarFotos _cargar;
 
-        public Crud(bahia_estateContext contexto)
+        public Crud(bahia_estateContext contexto,CargarFotos cargar)
         {
             _contexto = contexto;
+            this._cargar = cargar;
         }
-        public virtual async Task<List<Inmueble>> Busqueda() {
+        public virtual async Task<List<Property>> Busqueda() {
             var resultado = await _contexto.Inmuebles.Include(x => x.InmuebleFotos)
                                                     .Include(y => y.InmuebleDireccions)
                                                     .Include(z => z.InmueblePrecio).ToListAsync();
@@ -25,7 +27,7 @@ namespace MiBahia_Estate.Services
 
 
         }
-        public virtual Inmueble BusquedaPorId(int id) {
+        public virtual Property BusquedaPorId(int id) {
           
             var resultado =  _contexto.Inmuebles.Include(x => x.InmuebleFotos)
                                                 .Include(x => x.InmuebleDireccions)
@@ -36,7 +38,7 @@ namespace MiBahia_Estate.Services
             return resultado;
         }
 
-        public virtual async Task<List<Inmueble>> BusquedaPorDestacado(bool destacado) {
+        public virtual async Task<List<Property>> BusquedaPorDestacado(bool destacado) {
 
 
             var resultado = await _contexto.Inmuebles.Include(x => x.InmuebleFotos)
@@ -47,7 +49,7 @@ namespace MiBahia_Estate.Services
             return resultado;
 
         }
-        public virtual bool Agregar(Inmueble Inmueble, List<InmuebleFoto> foto, InmueblePrecio precio, InmuebleDireccion direccion) {
+        public virtual async Task<bool> Agregar(Property Inmueble, List<PropertyPhotos> foto, PropertyPrice precio, PropertyAddresses direccion) {
 
             try
             {
@@ -55,9 +57,10 @@ namespace MiBahia_Estate.Services
                 _contexto.Add(precio);
                 _contexto.Add(direccion);
 
-                foreach (InmuebleFoto foto1 in foto)
+                foreach (PropertyPhotos foto1 in foto)
                 {
-                    _contexto.Add(foto1);
+                    foto1.Foto = await _cargar.GuardarImagen(foto1.FotoArchivo);
+                    _contexto.InmuebleFotos.Add(foto1);
                     _contexto.SaveChanges();
                 }
 
@@ -71,7 +74,7 @@ namespace MiBahia_Estate.Services
             }
         }
 
-        public virtual bool Editar(Inmueble Inmueble, List<InmuebleFoto> fotos, InmueblePrecio precio, InmuebleDireccion direccion, int id) {
+        public virtual bool Editar(Property Inmueble, List<PropertyPhotos> fotos, PropertyPrice precio, PropertyAddresses direccion, int id) {
 
             try
             {
@@ -92,7 +95,7 @@ namespace MiBahia_Estate.Services
 
                 editandoDireccion.Direccion = direccion.Direccion;
 
-                List<InmuebleFoto> editandoFoto = _contexto.InmuebleFotos.Where(x => x.Inmuebleid == id).ToList();
+                List<PropertyPhotos> editandoFoto = _contexto.InmuebleFotos.Where(x => x.Inmuebleid == id).ToList();
 
                 editandoFoto = fotos;
                 _contexto.SaveChanges();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\v2\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj": {}
+    "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj": {}
   },
   "projects": {
-    "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\v2\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj": {
+    "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\v2\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj",
+        "projectUniqueName": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj",
         "projectName": "MiBahia_Estate",
-        "projectPath": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\v2\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj",
+        "projectPath": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj",
         "packagesPath": "C:\\Users\\wmlgu\\.nuget\\packages\\",
-        "outputPath": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\v2\\MiBahia_Estate\\MiBahia_Estate\\obj\\",
+        "outputPath": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\MiBahia_Estate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wmlgu\\AppData\\Roaming\\NuGet\\NuGet.Config",

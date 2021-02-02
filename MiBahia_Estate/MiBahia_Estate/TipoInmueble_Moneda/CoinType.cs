@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace MiBahia_Estate
 {
-    public partial class TipoMonedum
+    public partial class CoinType
     {
         public int Id { get; set; }
-        public string Tipo { get; set; }
+        public string Type { get; set; }
     }
 }

@@ -61,3 +61,10 @@ D:\.Net Core apps\practicas\BahiaRealEstate\v2\MiBahia_Estate\MiBahia_Estate\obj
 D:\.Net Core apps\practicas\BahiaRealEstate\v2\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\v2\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.pdb
 D:\.Net Core apps\practicas\BahiaRealEstate\v2\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.genruntimeconfig.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.csprojAssemblyReference.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.AssemblyInfoInputs.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.AssemblyInfo.cs
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.csproj.CoreCompileInputs.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.MvcApplicationPartsAssemblyInfo.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.pdb

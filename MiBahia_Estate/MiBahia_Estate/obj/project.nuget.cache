@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "coSGGqcdkR1PCL0R6xTNZWFUOv1FuiFm1AtatLKeSjnAVR1+WWpMzoBKNhVIdOlkLUY9VileJ/Q5EP8L1HteMA==",
+  "dgSpecHash": "YJb336jT/HUySXltICqt27F651u7a6jzdvBY4dLt4s3N/YTdG/bt4UDU8K3XPnkpWNBXwKHu3Vf+2mGmMRjdsA==",
   "success": true,
-  "projectFilePath": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\v2\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj",
+  "projectFilePath": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\MiBahia_Estate\\MiBahia_Estate.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wmlgu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\wmlgu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

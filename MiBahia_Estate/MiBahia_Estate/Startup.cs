@@ -11,6 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using MiBahia_Estate.Services;
+using MiBahia_Estate.Solares;
+using Microsoft.EntityFrameworkCore;
+using MiBahia_Estate.Helpers;
+using MiBahia_Estate.Repositories;
+
 namespace MiBahia_Estate
 {
     public class Startup
@@ -25,6 +31,12 @@ namespace MiBahia_Estate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(AsyncRepository<>));
+            services.AddDbContext<bahia_estateContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerconnection")));
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(MyFilter));
+            });
             services.AddControllers();
         }
 
@@ -46,6 +58,8 @@ namespace MiBahia_Estate
             {
                 endpoints.MapControllers();
             });
+
+            
         }
     }
 }
