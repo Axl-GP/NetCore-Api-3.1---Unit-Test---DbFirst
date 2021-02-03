@@ -17,6 +17,8 @@ using Microsoft.EntityFrameworkCore;
 using MiBahia_Estate.Helpers;
 using MiBahia_Estate.Repositories;
 
+using AutoMapper;
+
 namespace MiBahia_Estate
 {
     public class Startup

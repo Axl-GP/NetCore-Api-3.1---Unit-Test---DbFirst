@@ -2,6 +2,7 @@
 using MiBahia_Estate.Solares;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -9,10 +10,13 @@ namespace MiBahia_Estate
 {
     public partial class bahia_estateContext : DbContext
     {
+       
+
         public bahia_estateContext()
         {
         }
 
+       
         public bahia_estateContext(DbContextOptions<bahia_estateContext> options)
             : base(options)
         {
@@ -21,14 +25,16 @@ namespace MiBahia_Estate
         public virtual DbSet<Property> Properties { get; set; }
         public virtual DbSet<PropertyAddresses> PropertiesAddresses { get; set; }
         public virtual DbSet<PropertyPhotos> PropertiesPhotos { get; set; }
-        public virtual DbSet<PropertyPrice> PropertyPrice { get; set; }
+        public virtual DbSet<PropertyPrice> PropertyPrices { get; set; }
         public virtual DbSet<House> Houses { get; set; }
         public virtual DbSet<BuildingSite> BuildingSites { get; set; }
-        public virtual DbSet<PropertyType> TipoInmuebles { get; set; }
-        public virtual DbSet<CoinType> TipoMoneda { get; set; }
+        public virtual DbSet<PropertyType> PropertyTypes { get; set; }
+        public virtual DbSet<CoinType> CoinTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
