@@ -4,14 +4,16 @@ using MiBahia_Estate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MiBahia_Estate.Data.Migrations
 {
     [DbContext(typeof(bahia_estateContext))]
-    partial class bahia_estateContextModelSnapshot : ModelSnapshot
+    [Migration("20210203145516_secondrefacturingDbContext")]
+    partial class secondrefacturingDbContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,8 +45,7 @@ namespace MiBahia_Estate.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int")
-                        .HasColumnName("id")
-                        .UseIdentityColumn();
+                        .HasColumnName("id");
 
                     b.Property<decimal?>("Area")
                         .IsRequired()

@@ -18,6 +18,11 @@ using MiBahia_Estate.Helpers;
 using MiBahia_Estate.Repositories;
 
 using AutoMapper;
+using MiBahia_Estate.Models.Properties;
+using MiBahia_Estate.Models.Houses;
+using MiBahia_Estate.Models.BuildingSites;
+using MiBahia_Estate.Models.CoinType;
+using MiBahia_Estate.Models.PropertyType;
 
 namespace MiBahia_Estate
 {
@@ -34,6 +39,33 @@ namespace MiBahia_Estate
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped(typeof(IAsyncRepository<>), typeof(AsyncRepository<>));
+            services.AddAutoMapper(configuration =>
+            {
+                configuration.CreateMap<Property, PropertyDTO>();
+                configuration.CreateMap<PropertyITO, Property>().ReverseMap();
+
+                configuration.CreateMap<PropertyAddresses, PropertyAddressesDTO>();
+                configuration.CreateMap<PropertyAddressesITO, PropertyAddresses>().ReverseMap();
+
+                configuration.CreateMap<PropertyPhotos, PropertyPhotosDTO>();
+                configuration.CreateMap<PropertyPhotosITO, PropertyPhotos>().ReverseMap();
+
+                configuration.CreateMap<PropertyPrice, PropertyPriceDTO>();
+                configuration.CreateMap<PropertyPriceITO, PropertyPrice>().ReverseMap();
+
+                configuration.CreateMap<House, HouseDTO>();
+                configuration.CreateMap<HouseITO, House>().ReverseMap();
+
+                configuration.CreateMap<BuildingSite, BuildingSiteDTO>();
+                configuration.CreateMap<BuildingSiteITO, BuildingSite>().ReverseMap();
+
+                configuration.CreateMap<CoinType, CoinTypeDTO>();
+                configuration.CreateMap<CoinTypeITO, CoinType>().ReverseMap();
+
+                configuration.CreateMap<PropertyType, PropertyTypeDTO>();
+                configuration.CreateMap<PropertyTypeITO, PropertyType>().ReverseMap();
+                
+            });
             services.AddDbContext<bahia_estateContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerconnection")));
             services.AddMvc(options =>
             {

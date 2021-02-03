@@ -12,7 +12,7 @@ namespace MiBahia_Estate
             Properties = new HashSet<Property>();
         }
 
-        public bool Id { get; set; }
+        public int Id { get; set; }
         public string Type { get; set; }
 
         public virtual ICollection<Property> Properties { get; set; }

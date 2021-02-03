@@ -18,7 +18,7 @@ namespace MiBahia_Estate
         }
 
         public int Id { get; set; }
-        public bool PropertyTypeId { get; set; }
+        public int PropertyTypeId { get; set; }
         [Required]
         [StringLength(80, ErrorMessage ="El titulo es demasiado largo.")]
         [FirstUpperCase]

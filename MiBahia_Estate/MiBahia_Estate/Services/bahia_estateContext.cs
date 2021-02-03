@@ -45,7 +45,9 @@ namespace MiBahia_Estate
             {
                 entity.ToTable("Property");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                        .HasColumnName("id")
+                        .UseIdentityColumn();
 
                 entity.Property(e => e.Area)
                     .HasColumnType("decimal(13, 2)")
@@ -79,7 +81,9 @@ namespace MiBahia_Estate
             {
                 entity.ToTable("PropertyAddress");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                        .HasColumnName("id")
+                        .UseIdentityColumn();
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(120)
@@ -98,7 +102,9 @@ namespace MiBahia_Estate
             {
                 entity.ToTable("PropertyPhotos");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                        .HasColumnName("id")
+                        .UseIdentityColumn();
 
                 entity.Property(e => e.PhotoPath)
                     .IsUnicode(false)
@@ -204,7 +210,9 @@ namespace MiBahia_Estate
             {
                 entity.ToTable("PropertyType");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id)
+                      .HasColumnName("id")
+                      .UseIdentityColumn();
 
                 entity.Property(e => e.Type)
                     .HasMaxLength(15)
