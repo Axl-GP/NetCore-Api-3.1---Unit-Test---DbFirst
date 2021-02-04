@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiBahia_Estate.Repositories
 {
-    interface IAsyncBuildingSiteRepository: IAsyncRepository<BuildingSite>
+    public interface IAsyncBuildingSiteRepository: IAsyncRepository<BuildingSite>
     {
         Task<IEnumerable<BuildingSite>> GetOutstandingBuildingSites(bool outstanding);
 

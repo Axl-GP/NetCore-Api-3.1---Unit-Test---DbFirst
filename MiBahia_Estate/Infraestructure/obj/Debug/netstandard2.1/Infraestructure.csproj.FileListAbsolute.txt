@@ -1,0 +1,4 @@
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\Infraestructure\bin\Debug\netstandard2.1\Domain.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\Infraestructure\obj\Debug\netstandard2.1\Infraestructure.csprojAssemblyReference.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\Infraestructure\obj\Debug\netstandard2.1\Infraestructure.AssemblyInfoInputs.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\Infraestructure\obj\Debug\netstandard2.1\Infraestructure.AssemblyInfo.cs
