@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using MiBahia_Estate;
-using MiBahia_Estate.Helpers;
 using MiBahia_Estate.Solares;
 
 #nullable disable
@@ -19,9 +18,7 @@ namespace MiBahia_Estate
 
         public int Id { get; set; }
         public int PropertyTypeId { get; set; }
-        [Required]
-        [StringLength(80, ErrorMessage ="El titulo es demasiado largo.")]
-        [FirstUpperCase]
+        
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }

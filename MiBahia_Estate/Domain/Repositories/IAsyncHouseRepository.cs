@@ -10,8 +10,9 @@ namespace MiBahia_Estate.Repositories
         Task<IEnumerable<Property>> SearchByRooms(int rooms);
         Task<IEnumerable<Property>> SearchByBathrooms(int bathrooms);       
         Task<IEnumerable<Property>> SearchByRoomsBathrooms(int rooms, int bathrooms);
+        Task<IEnumerable<Property>> SearchOutstandingProperties(bool outstanding);
         Task<IEnumerable<Property>> SearchOutstandingPropertiesByRooms(int rooms, bool outstanding);
         Task<IEnumerable<Property>> SearchOutstandingPropertiesByBathrooms(int bathrooms, bool outstanding);
-        Task<IEnumerable<Property>> SearchOutstandingPropertiesByRoomsOrBathrooms(int rooms, int bathrooms, bool outstanding);
+        Task<IEnumerable<Property>> SearchOutstandingPropertiesByRoomsAndBathrooms(int rooms, int bathrooms, bool outstanding);
     }
 }

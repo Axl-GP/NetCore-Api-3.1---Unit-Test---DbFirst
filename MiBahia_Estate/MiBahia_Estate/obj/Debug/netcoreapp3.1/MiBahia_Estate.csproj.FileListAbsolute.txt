@@ -122,7 +122,13 @@ D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Esta
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\staticwebassets\MiBahia_Estate.StaticWebAssets.Manifest.cache
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\staticwebassets\MiBahia_Estate.StaticWebAssets.xml
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.genruntimeconfig.cache
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.csproj.CoreCompileInputs.cache
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.MvcApplicationPartsAssemblyInfo.cache
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Domain.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Infraestructure.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Domain.pdb
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Infraestructure.pdb

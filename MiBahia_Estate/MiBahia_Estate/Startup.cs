@@ -24,6 +24,10 @@ using MiBahia_Estate.Models.BuildingSites;
 using MiBahia_Estate.Models.CoinType;
 using MiBahia_Estate.Models.PropertyType;
 
+using Infraestructure;
+using Infraestructure.Services;
+using System.Configuration;
+
 namespace MiBahia_Estate
 {
     public class Startup
@@ -66,10 +70,11 @@ namespace MiBahia_Estate
                 configuration.CreateMap<PropertyTypeITO, PropertyType>().ReverseMap();
                 
             });
-            services.AddDbContext<bahia_estateContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerconnection")));
+            services.CustomContextExtension(Configuration);
+            //services.AddDbContext<bahia_estateContext>(options => options.UseSqlServer(Configuration["DbConnection"]));
             services.AddMvc(options =>
             {
-                options.Filters.Add(typeof(MyFilter));
+                
             });
             services.AddControllers();
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using MiBahia_Estate.Repositories;
 using MiBahia_Estate.Solares;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -30,6 +31,8 @@ namespace MiBahia_Estate
         public virtual DbSet<BuildingSite> BuildingSites { get; set; }
         public virtual DbSet<PropertyType> PropertyTypes { get; set; }
         public virtual DbSet<CoinType> CoinTypes { get; set; }
+
+       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

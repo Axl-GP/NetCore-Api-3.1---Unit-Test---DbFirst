@@ -10,52 +10,51 @@ namespace MiBahia_Estate.Repositories
     public class AsyncRepository<TEntity> : IAsyncRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext _context;
-        protected readonly DbSet<TEntity> _entities;
+       
 
-        public AsyncRepository(DbContext context,DbSet<TEntity> entities)
+        public AsyncRepository(DbContext context)
         {
             this._context = context;
-            this._entities = entities;
         }
 
         public async Task Add(TEntity entity)
         {
-            await _entities.AddAsync(entity);
+            await _context.Set<TEntity>().AddAsync(entity);
         }
 
         public async Task AddRange(IEnumerable<TEntity> entities)
         {
-            await _entities.AddRangeAsync(entities);
+            await _context.Set<TEntity>().AddRangeAsync(entities);
         }
 
         public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return await _entities.Where(predicate).ToListAsync();
+            return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
         public async Task<TEntity> Get(int id)
         {
-            return await _entities.FindAsync(id);
+            return await _context.Set<TEntity>().FindAsync(id);
         }
 
         public async Task<IEnumerable<TEntity>> GetAll()
         {
-            return await _entities.ToListAsync();
+            return await _context.Set<TEntity>().ToListAsync();
         }
 
         public void Remove(TEntity entity)
         {
-            _entities.Remove(entity);
+            _context.Set<TEntity>().Remove(entity);
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
-            _entities.RemoveRange(entities);
+            _context.Set<TEntity>().RemoveRange(entities);
         }
 
         public async Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
-            return await _entities.Where(predicate).FirstOrDefaultAsync();
+            return await _context.Set<TEntity>().Where(predicate).FirstOrDefaultAsync();
         }
     }
 }
