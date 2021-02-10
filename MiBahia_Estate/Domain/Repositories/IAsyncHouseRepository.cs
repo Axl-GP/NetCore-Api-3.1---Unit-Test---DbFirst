@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MiBahia_Estate.Repositories
 {
-    public interface IAsyncHouseRepository : IAsyncRepository<House> 
+    public interface IAsyncHouseRepository : IAsyncRepository<Property> 
     {
         Task<IEnumerable<Property>> SearchByRooms(int rooms);
         Task<IEnumerable<Property>> SearchByBathrooms(int bathrooms);       

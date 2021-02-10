@@ -8,6 +8,7 @@ namespace MiBahia_Estate.Models.Properties
 {
     public class PropertyPhotosDTO
     {
+        public int Id { get; set; }
         public int PropertyId { get; set; }
         public IFormFile PhotoFile { get; set; }
     }

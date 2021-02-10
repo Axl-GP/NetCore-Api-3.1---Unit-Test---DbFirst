@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Repositories;
 using MiBahia_Estate.Persistence.Repositories;
 using MiBahia_Estate.Repositories;
 using MiBahia_Estate.Solares;
@@ -21,6 +22,11 @@ namespace MiBahia_Estate
             BuildingSites = new AsyncBuildingSiteRepository(_context,buildingSite);
         }
 
+        //public IAsyncRepository RelatedEntities { get; private set; }
+        public IAsyncPropertyAddressRepository PropertyAddress { get; private set; }
+        public IAsyncPropertyPriceRepository PropertyPrice { get; private set; }
+        
+        public IAsyncPropertyPhotosRepository PropertyPhotos { get; private set; }
         public IAsyncHouseRepository Houses { get ; private set; }
         public IAsyncBuildingSiteRepository BuildingSites { get ; private set; }
 

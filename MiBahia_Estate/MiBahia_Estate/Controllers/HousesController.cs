@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using MiBahia_Estate.Models.Houses;
 using MiBahia_Estate.Models.Properties;
 using MiBahia_Estate.Repositories;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,7 +46,7 @@ namespace MiBahia_Estate.Controllers
             return NotFound();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name ="GetProperty")]
         public async Task<ActionResult<PropertyDTO>> GetProperties(int id)
         {
             var response = await _work.Houses.Get(id);
@@ -154,14 +156,95 @@ namespace MiBahia_Estate.Controllers
             return NotFound();
         }
         #endregion
-        /*
-                [HttpPost]
-                public async Task<ActionResult<PropertyDTO>> Post([FromBody] Property)
-                {
+        
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody] PropertyITO property)
+        {
+            if (property != null)
+            {
 
-                    return CreatedAtRouteResult();
-                }
-        */
+                var propertyDB = _mapper.Map<House>(property);
+                await _work.Houses.Add(propertyDB);
+                await _work.PropertyPrice.Add(propertyDB.PropertyPrice);
+                await _work.PropertyAddress.AddRange(propertyDB.PropertyAddresses);
+                await _work.PropertyPhotos.AddRange(propertyDB.PropertyPhotos);
+
+                await _work.Complete();
+
+                _work.Dispose();
+                var propertyDTO = _mapper.Map<PropertyDTO>(propertyDB);
+       
+                return new CreatedAtRouteResult("GetProperty", new {id= propertyDTO.Id }, propertyDTO);
+            }
+            return BadRequest();
+        }
+        
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(int id,[FromBody] HouseITO property)
+        {
+            var response =await _work.Houses.Get(id);
+            if (response != null)
+            {
+                var propertyDB = _mapper.Map<House>(property);
+                response.House = propertyDB.House;
+                response.PropertyAddresses = propertyDB.PropertyAddresses;
+                response.PropertyPrice = propertyDB.PropertyPrice;
+                response.PropertyPhotos = propertyDB.PropertyPhotos;
+
+                await _work.Complete();
+                _work.Dispose();
+
+                return NoContent();
+            }
+            return BadRequest();
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> Patch(int id, JsonPatchDocument<HouseITO> property)
+        {
+            if (property == null)
+            {
+                return BadRequest();
+            }
+
+            var propertyDB = await _work.Houses.Get(id);
+
+            if (propertyDB == null)
+            {
+                return NotFound();
+            }
+
+            var houseITO = _mapper.Map<HouseITO>(property);
+
+            property.ApplyTo(houseITO, (Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter)ModelState);
+            _mapper.Map(houseITO, propertyDB);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _work.Complete();
+            _work.Dispose();
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var response = await _work.Houses.Get(id);
+
+            if (response != null)
+            {
+                _work.Houses.Remove(response);
+                await _work.Complete();
+                _work.Dispose();
+                return NoContent();
+            }
+            return BadRequest();
+
+
+        }
+
 
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiBahia_Estate.Repositories
 {
-    public class AsyncHouseRepository : AsyncRepository<House>, IAsyncHouseRepository
+    public class AsyncHouseRepository : AsyncRepository<Property>, IAsyncHouseRepository
     {
         public AsyncHouseRepository(bahia_estateContext context): base(context)
         {
