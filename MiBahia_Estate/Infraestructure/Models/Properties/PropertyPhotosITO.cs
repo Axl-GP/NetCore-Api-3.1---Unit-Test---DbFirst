@@ -12,9 +12,6 @@ namespace MiBahia_Estate.Models.Properties
     {
         [Required]
         public int PropertyId { get; set; }
-        
-        [Required]
-        public string PhotoPath { get; set; }
 
         [NotMapped]
         public IFormFile PhotoFile { get; set; }

@@ -27,6 +27,7 @@ using MiBahia_Estate.Models.PropertyType;
 using Infraestructure;
 using Infraestructure.Services;
 using System.Configuration;
+using Domain;
 
 namespace MiBahia_Estate
 {
@@ -70,8 +71,9 @@ namespace MiBahia_Estate
                 configuration.CreateMap<PropertyTypeITO, PropertyType>().ReverseMap();
                 
             });
-            services.CustomContextExtension(Configuration);
-            //services.AddDbContext<bahia_estateContext>(options => options.UseSqlServer(Configuration["DbConnection"]));
+            services.AddTransient<AsyncUnitOfWork, AsyncUnitOfWork>();
+            //services.CustomContextExtension(Configuration);
+            services.AddDbContext<bahia_estateContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection")));
             services.AddMvc(options =>
             {
                 

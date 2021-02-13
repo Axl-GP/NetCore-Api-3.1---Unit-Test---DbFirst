@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    public interface IAsyncPropertyPhotosRepository: IAsyncRepository<PropertyPrice>
+    public interface IAsyncPropertyPhotosRepository: IAsyncImagesRepository<PropertyPhotos>
     {
-        Task<IEnumerable<Property>> GetPropertiesByPriceRange(int minimum, int maximum);
-        Task<IEnumerable<Property>> GetPropertiesByMinimumPrice(int minimum);
-        Task<IEnumerable<Property>> GetPropertiesByMaximumPrice(int maximum);
     }
 }

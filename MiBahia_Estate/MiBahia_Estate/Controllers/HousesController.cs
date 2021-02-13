@@ -34,25 +34,25 @@ namespace MiBahia_Estate.Controllers
         #region Get Endpoints
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Property>>> Get()
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> Get()
         {
             var response = await _work.Houses.GetAll();
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
             return NotFound();
         }
 
         [HttpGet("{id}", Name ="GetProperty")]
-        public async Task<ActionResult<PropertyDTO>> GetProperties(int id)
+        public async Task<ActionResult<HouseDTO>> GetProperties(int id)
         {
             var response = await _work.Houses.Get(id);
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<HouseDTO>(response);
                 return Ok(responseDTO);
             }
 
@@ -61,13 +61,13 @@ namespace MiBahia_Estate.Controllers
         }
 
         [HttpGet("{rooms}")]
-        public async Task<ActionResult<IEnumerable<Property>>> GetPropertiesByRooms(int rooms)
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> GetPropertiesByRooms(int rooms)
         {
             var response = await _work.Houses.SearchByRooms(rooms);
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
 
@@ -75,13 +75,13 @@ namespace MiBahia_Estate.Controllers
         }
 
         [HttpGet("{Bathrooms}")]
-        public async Task<ActionResult<IEnumerable<Property>>> GetPropertiesByBathrooms(int Bathrooms)
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> GetPropertiesByBathrooms(int Bathrooms)
         {
             var response = await _work.Houses.SearchByBathrooms(Bathrooms);
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
             return NotFound();
@@ -89,26 +89,26 @@ namespace MiBahia_Estate.Controllers
 
 
         [HttpGet("{rooms}/{bathrooms}")]
-        public async Task<ActionResult<IEnumerable<Property>>> GetProperties(int rooms,int bathrooms)
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> GetProperties(int rooms,int bathrooms)
         {
             var response = await _work.Houses.SearchByRoomsBathrooms(rooms,bathrooms);
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
             return NotFound();
         }
 
         [HttpGet("{outstanding}")]
-        public async Task<ActionResult<IEnumerable<Property>>> GetOutstandingProperties(bool outstanding)
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingProperties(bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingProperties(outstanding);
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
             return NotFound();
@@ -116,13 +116,13 @@ namespace MiBahia_Estate.Controllers
 
 
         [HttpGet("{rooms}/{outstanding}")]
-        public async Task<ActionResult<IEnumerable<Property>>> GetOutstandingPropertiesByRooms(int rooms, bool outstanding)
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingPropertiesByRooms(int rooms, bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingPropertiesByRooms(rooms, outstanding);
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
             return NotFound();
@@ -131,50 +131,51 @@ namespace MiBahia_Estate.Controllers
 
 
         [HttpGet("{bathrooms}/{outstanding}")]
-        public async Task<ActionResult<IEnumerable<Property>>> GetOutstandingPropertiesByBathrooms(int bathrooms, bool outstanding)
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingPropertiesByBathrooms(int bathrooms, bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingPropertiesByBathrooms(bathrooms, outstanding);
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
             return NotFound();
         }
 
         [HttpGet("{rooms}/{bathrooms}/{outstanding}")]
-        public async Task<ActionResult<IEnumerable<Property>>> GetOutstandingPropertiesByRoomsBathrooms(int rooms,int bathrooms, bool outstanding)
+        public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingPropertiesByRoomsBathrooms(int rooms,int bathrooms, bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingPropertiesByRoomsAndBathrooms(rooms, bathrooms, outstanding);
 
             if (response != null)
             {
-                var responseDTO = _mapper.Map<PropertyDTO>(response);
+                var responseDTO = _mapper.Map<IEnumerable<HouseDTO>>(response);
                 return Ok(responseDTO);
             }
             return NotFound();
         }
         #endregion
+
+        #region Post, Put, Patch and Delete Endpoints
         
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] PropertyITO property)
+        public async Task<ActionResult> Post([FromBody] HouseITO property)
         {
             if (property != null)
             {
-
-                var propertyDB = _mapper.Map<House>(property);
-                await _work.Houses.Add(propertyDB);
-                await _work.PropertyPrice.Add(propertyDB.PropertyPrice);
-                await _work.PropertyAddress.AddRange(propertyDB.PropertyAddresses);
-                await _work.PropertyPhotos.AddRange(propertyDB.PropertyPhotos);
+                var houseDB = _mapper.Map<House>(property);
+                await _work.Houses.Add(houseDB);
+                await _work.PropertyPrice.Add(houseDB.PropertyPrice);
+                await _work.PropertyAddress.AddRange(houseDB.PropertyAddresses);
+                await _work.PropertyPhotos.AddImages(houseDB.PropertyPhotos);
 
                 await _work.Complete();
 
                 _work.Dispose();
-                var propertyDTO = _mapper.Map<PropertyDTO>(propertyDB);
+                var houseDTO = _mapper.Map<HouseDTO>(houseDB);
        
-                return new CreatedAtRouteResult("GetProperty", new {id= propertyDTO.Id }, propertyDTO);
+                return new CreatedAtRouteResult("GetProperty", new {id= houseDB.Id }, houseDTO);
             }
             return BadRequest();
         }
@@ -244,7 +245,7 @@ namespace MiBahia_Estate.Controllers
 
 
         }
-
+        #endregion
 
     }
 }

@@ -4,14 +4,16 @@ using MiBahia_Estate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MiBahia_Estate.Data.Migrations
+namespace Infraestructure.Data.Migrations
 {
     [DbContext(typeof(bahia_estateContext))]
-    partial class bahia_estateContextModelSnapshot : ModelSnapshot
+    [Migration("20210210153307_Fifth-Migration")]
+    partial class FifthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

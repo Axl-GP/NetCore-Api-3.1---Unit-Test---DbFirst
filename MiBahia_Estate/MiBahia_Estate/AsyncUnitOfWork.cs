@@ -15,11 +15,11 @@ namespace MiBahia_Estate
     {
         private readonly bahia_estateContext _context;
 
-        public AsyncUnitOfWork(bahia_estateContext context, DbSet<House> house, DbSet<BuildingSite> buildingSite )
+        public AsyncUnitOfWork(bahia_estateContext context)
         {
             this._context = context;
             Houses = new AsyncHouseRepository(_context);
-            BuildingSites = new AsyncBuildingSiteRepository(_context,buildingSite);
+            BuildingSites = new AsyncBuildingSiteRepository(_context);
         }
 
         //public IAsyncRepository RelatedEntities { get; private set; }

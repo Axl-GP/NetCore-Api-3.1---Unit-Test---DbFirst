@@ -98,6 +98,7 @@ namespace MiBahia_Estate
                 entity.HasOne(d => d.Property)
                     .WithMany(p => p.PropertyAddresses)
                     .HasForeignKey(d => d.PropertyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("PropertyAddress_fk");
             });
 

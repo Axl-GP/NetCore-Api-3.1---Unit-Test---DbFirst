@@ -11,30 +11,26 @@ namespace MiBahia_Estate.Persistence.Repositories
     public class AsyncBuildingSiteRepository : AsyncRepository<BuildingSite>, IAsyncBuildingSiteRepository
     {
 
-        public AsyncBuildingSiteRepository(bahia_estateContext context, DbSet<BuildingSite> entities) : base(context,entities)
+        public AsyncBuildingSiteRepository(bahia_estateContext context) : base(context)
         {
            
         }
         public async Task<IEnumerable<BuildingSite>> GetBuildingSitesbyPricePerMeter(int minimum, int maximum)
         {
-            return await BuildingSite.Where(x => x.PricePerMeter >= minimum && x.PricePerMeter <= maximum).ToListAsync();
+            return await Context.BuildingSites.Where(x => x.PricePerMeter >= minimum && x.PricePerMeter <= maximum).ToListAsync();
         }
 
         public async Task<IEnumerable<BuildingSite>> GetBuildingSitesbySize(int minimumSize, int maximumSize)
         {
-            return await BuildingSite.Where(x => x.Area >= minimumSize && x.Area <= maximumSize).ToListAsync();
+            return await Context.BuildingSites.Where(x => x.Area >= minimumSize && x.Area <= maximumSize).ToListAsync();
         }
 
         public async Task<IEnumerable<BuildingSite>> GetOutstandingBuildingSites(bool outstanding)
         {
-            return await BuildingSite.Where(x => x.Outstanding == outstanding).ToListAsync();
+            return await Context.BuildingSites.Where(x => x.Outstanding == outstanding).ToListAsync();
         }
 
-        public DbSet<BuildingSite> BuildingSite
-        {
-            get { return _entities as DbSet<BuildingSite>; }
-        }
-
+        
         public bahia_estateContext Context
         {
             get { return _context as bahia_estateContext; }
