@@ -66,7 +66,6 @@ D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Esta
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.AssemblyInfo.cs
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.pdb
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\appsettings.json
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\MiBahia_Estate.exe
@@ -145,6 +144,12 @@ D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Esta
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.csproj.CoreCompileInputs.cache
-D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.MvcApplicationPartsAssemblyInfo.cache
 D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.csproj.CoreCompileInputs.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.MvcApplicationPartsAssemblyInfo.cs
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\MiBahia_Estate.MvcApplicationPartsAssemblyInfo.cache
+D:\.Net Core apps\practicas\BahiaRealEstate\Back-end\MiBahia_Estate\MiBahia_Estate\obj\Debug\netcoreapp3.1\scopedcss\bundle\MiBahia_Estate.styles.css

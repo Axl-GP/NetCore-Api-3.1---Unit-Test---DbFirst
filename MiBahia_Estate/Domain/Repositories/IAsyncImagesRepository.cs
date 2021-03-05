@@ -1,13 +1,15 @@
-﻿using System;
+﻿using MiBahia_Estate;
+using MiBahia_Estate.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    public interface IAsyncImagesRepository<TEntity> where TEntity: class
+    public interface IAsyncImagesRepository:IAsyncRepository<PropertyPhotos>
     {
-        Task AddImage(TEntity entity);
-        Task AddImages(IEnumerable<TEntity> entities);
+        Task AddImage(PropertyPhotos entity);
+        Task AddImages(IEnumerable<PropertyPhotos> entities);
     }
 }

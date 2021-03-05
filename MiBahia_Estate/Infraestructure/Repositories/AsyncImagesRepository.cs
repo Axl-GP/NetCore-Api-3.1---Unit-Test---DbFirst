@@ -6,18 +6,23 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MiBahia_Estate.Repositories;
 
 namespace Infraestructure.Repositories
 {
-    public class AsyncImagesRepository : IAsyncImagesRepository<PropertyPhotos>
+    public class AsyncImagesRepository : AsyncRepository<PropertyPhotos>, IAsyncImagesRepository
     {
         private readonly SaveImages _upload;
-        private readonly bahia_estateContext _context;
+        private new readonly bahia_estateContext _context;
 
-        public AsyncImagesRepository(SaveImages upload, bahia_estateContext context)
+        public AsyncImagesRepository(SaveImages upload, bahia_estateContext context):base(context)
         {
             this._upload = upload;
             this._context = context;
+        }
+        public AsyncImagesRepository(bahia_estateContext context):base(context)
+        {
+
         }
 
         public async Task AddImage(PropertyPhotos entity)

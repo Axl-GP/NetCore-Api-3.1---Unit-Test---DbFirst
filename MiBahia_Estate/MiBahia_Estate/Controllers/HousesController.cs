@@ -21,7 +21,7 @@ namespace MiBahia_Estate.Controllers
         private readonly AsyncUnitOfWork _work;
         private readonly IMapper _mapper;
 
-        public IAsyncHouseRepository Houses { get; private set; }
+       // public IAsyncHouseRepository Houses { get; private set; }
 
         public HousesController(bahia_estateContext context, AsyncUnitOfWork work, IMapper mapper)
         {
@@ -29,7 +29,7 @@ namespace MiBahia_Estate.Controllers
             _mapper = mapper;
             this._context = context;
             this._work = work;
-            Houses = new AsyncHouseRepository(_context);
+         //   Houses = new AsyncHouseRepository(_context);
         }
         #region Get Endpoints
         
@@ -45,8 +45,8 @@ namespace MiBahia_Estate.Controllers
             }
             return NotFound();
         }
-
-        [HttpGet("{id}", Name ="GetProperty")]
+        
+        [HttpGet("search-house-by-id/{id}")]
         public async Task<ActionResult<HouseDTO>> GetProperties(int id)
         {
             var response = await _work.Houses.Get(id);
@@ -59,8 +59,8 @@ namespace MiBahia_Estate.Controllers
             return NotFound();
 
         }
-
-        [HttpGet("{rooms}")]
+        
+        [HttpGet("search-houses-by-rooms/{rooms}")]
         public async Task<ActionResult<IEnumerable<HouseDTO>>> GetPropertiesByRooms(int rooms)
         {
             var response = await _work.Houses.SearchByRooms(rooms);
@@ -73,8 +73,8 @@ namespace MiBahia_Estate.Controllers
 
             return NotFound();
         }
-
-        [HttpGet("{Bathrooms}")]
+        
+        [HttpGet("search-house-by-bathrooms/{Bathrooms}")]
         public async Task<ActionResult<IEnumerable<HouseDTO>>> GetPropertiesByBathrooms(int Bathrooms)
         {
             var response = await _work.Houses.SearchByBathrooms(Bathrooms);
@@ -87,8 +87,8 @@ namespace MiBahia_Estate.Controllers
             return NotFound();
         }
 
-
-        [HttpGet("{rooms}/{bathrooms}")]
+        
+        [HttpGet("search-house-by-rooms-&-bathrooms/{rooms}/{bathrooms}, ")]
         public async Task<ActionResult<IEnumerable<HouseDTO>>> GetProperties(int rooms,int bathrooms)
         {
             var response = await _work.Houses.SearchByRoomsBathrooms(rooms,bathrooms);
@@ -100,8 +100,8 @@ namespace MiBahia_Estate.Controllers
             }
             return NotFound();
         }
-
-        [HttpGet("{outstanding}")]
+        
+        [HttpGet("search-outstanding-houses/{outstanding}")]
         public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingProperties(bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingProperties(outstanding);
@@ -114,8 +114,7 @@ namespace MiBahia_Estate.Controllers
             return NotFound();
         }
 
-
-        [HttpGet("{rooms}/{outstanding}")]
+        [HttpGet("search-outstanding-houses-by-rooms/{rooms}/{outstanding}")]
         public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingPropertiesByRooms(int rooms, bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingPropertiesByRooms(rooms, outstanding);
@@ -129,8 +128,8 @@ namespace MiBahia_Estate.Controllers
         }
 
 
-
-        [HttpGet("{bathrooms}/{outstanding}")]
+        
+        [HttpGet("search-outstanding-houses-by-bathrooms/{bathrooms}/{outstanding}")]
         public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingPropertiesByBathrooms(int bathrooms, bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingPropertiesByBathrooms(bathrooms, outstanding);
@@ -143,7 +142,7 @@ namespace MiBahia_Estate.Controllers
             return NotFound();
         }
 
-        [HttpGet("{rooms}/{bathrooms}/{outstanding}")]
+        [HttpGet("search-outstanding-houses-by-rooms-&-bathrooms/{rooms}/{bathrooms}/{outstanding}")]
         public async Task<ActionResult<IEnumerable<HouseDTO>>> GetOutstandingPropertiesByRoomsBathrooms(int rooms,int bathrooms, bool outstanding)
         {
             var response = await _work.Houses.SearchOutstandingPropertiesByRoomsAndBathrooms(rooms, bathrooms, outstanding);
@@ -169,13 +168,14 @@ namespace MiBahia_Estate.Controllers
                 await _work.PropertyPrice.Add(houseDB.PropertyPrice);
                 await _work.PropertyAddress.AddRange(houseDB.PropertyAddresses);
                 await _work.PropertyPhotos.AddImages(houseDB.PropertyPhotos);
+                
 
                 await _work.Complete();
 
                 _work.Dispose();
                 var houseDTO = _mapper.Map<HouseDTO>(houseDB);
        
-                return new CreatedAtRouteResult("GetProperty", new {id= houseDB.Id }, houseDTO);
+                return new CreatedAtRouteResult("search-house-by-id", new {id= houseDB.Id }, houseDTO);
             }
             return BadRequest();
         }

@@ -7649,6 +7649,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "projectReferences": {
             "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\Domain\\Domain.csproj": {
               "projectPath": "D:\\.Net Core apps\\practicas\\BahiaRealEstate\\Back-end\\MiBahia_Estate\\Domain\\Domain.csproj"
@@ -7664,6 +7665,7 @@
     },
     "frameworks": {
       "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
@@ -7707,7 +7709,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

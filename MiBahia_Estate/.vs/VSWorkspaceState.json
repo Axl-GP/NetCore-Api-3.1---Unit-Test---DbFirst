@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Domain",
+    "\\Domain\\Repositories",
+    "\\Infraestructure\\Repositories",
     "\\MiBahia_Estate"
   ],
-  "SelectedNode": "\\MiBahia_Estate.sln",
+  "SelectedNode": "\\Infraestructure",
   "PreviewInSolutionExplorer": false
 }

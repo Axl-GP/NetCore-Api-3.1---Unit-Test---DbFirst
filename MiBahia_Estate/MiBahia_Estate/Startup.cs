@@ -43,6 +43,7 @@ namespace MiBahia_Estate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
             services.AddScoped(typeof(IAsyncRepository<>), typeof(AsyncRepository<>));
             services.AddAutoMapper(configuration =>
             {
@@ -74,6 +75,12 @@ namespace MiBahia_Estate
             services.AddTransient<AsyncUnitOfWork, AsyncUnitOfWork>();
             //services.CustomContextExtension(Configuration);
             services.AddDbContext<bahia_estateContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection")));
+            services.AddSwaggerGen(x => {
+                x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                { Title = "Mi Bahia Real Estate", Version = "v1" });
+                x.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+            });
+
             services.AddMvc(options =>
             {
                 
@@ -84,10 +91,17 @@ namespace MiBahia_Estate
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+
+            app.UseSwaggerUI(config =>
+            {
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "Mi Bahia Real Estate");
+            });
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
 
             app.UseHttpsRedirection();
 

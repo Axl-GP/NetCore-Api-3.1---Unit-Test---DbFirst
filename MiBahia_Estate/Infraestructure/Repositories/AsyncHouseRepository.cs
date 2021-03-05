@@ -16,28 +16,28 @@ namespace MiBahia_Estate.Repositories
      
         public async Task<IEnumerable<Property>> SearchByBathrooms(int bathrooms)
         {
-            return await BahiaContext.Houses.Include(x => x.House).ThenInclude(x=> new { x.PropertyAddresses,x.PropertyPhotos,x.PropertyPrice})
+            return await BahiaContext.Houses.Include(x => x.PropertyAddresses).Include(x => x.PropertyPhotos).Include(x => x.PropertyPrice)
                                                 .Where(x => x.House.Bathrooms == bathrooms)
                                                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Property>> SearchByRooms(int rooms)
         {
-            return await BahiaContext.Houses.Include(x => x.House).ThenInclude(x => new { x.PropertyAddresses, x.PropertyPhotos, x.PropertyPrice })
+            return await BahiaContext.Houses.Include(x => x.PropertyAddresses).Include(x => x.PropertyPhotos).Include(x => x.PropertyPrice)
                                                 .Where(x => x.House.Rooms == rooms)
                                                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Property>> SearchByRoomsBathrooms(int rooms, int bathrooms)
         {
-            return await BahiaContext.Houses.Include(x => x.House).ThenInclude(x => new { x.PropertyAddresses, x.PropertyPhotos, x.PropertyPrice })
+            return await BahiaContext.Houses.Include(x => x.PropertyAddresses).Include(x => x.PropertyPhotos).Include(x => x.PropertyPrice)
                                                 .Where(x => x.House.Rooms == rooms && x.House.Bathrooms == bathrooms)
                                                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Property>> SearchOutstandingProperties(bool outstanding)
         {
-            return await BahiaContext.Houses.Include(x => x.House).ThenInclude(x => new { x.PropertyAddresses, x.PropertyPhotos, x.PropertyPrice })
+            return await BahiaContext.Houses.Include(x => x.PropertyAddresses).Include(x => x.PropertyPhotos).Include(x => x.PropertyPrice)
                                                 .Where(x=> x.House.Outstanding == outstanding)
                                                 .ToListAsync();
         }
@@ -45,21 +45,21 @@ namespace MiBahia_Estate.Repositories
 
         public async Task<IEnumerable<Property>> SearchOutstandingPropertiesByBathrooms(int bathrooms, bool outstanding)
         {
-            return await BahiaContext.Houses.Include(x => x.House).ThenInclude(x => new { x.PropertyAddresses, x.PropertyPhotos, x.PropertyPrice })
+            return await BahiaContext.Houses.Include(x => x.PropertyAddresses).Include(x => x.PropertyPhotos).Include(x => x.PropertyPrice)
                                                 .Where(x => x.House.Bathrooms == bathrooms && x.House.Outstanding == outstanding)
                                                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Property>> SearchOutstandingPropertiesByRooms(int rooms, bool outstanding)
         {
-            return await BahiaContext.Houses.Include(x => x.House).ThenInclude(x => new { x.PropertyAddresses, x.PropertyPhotos, x.PropertyPrice })
+            return await BahiaContext.Houses.Include(x => x.PropertyAddresses).Include(x => x.PropertyPhotos).Include(x => x.PropertyPrice)
                                                 .Where(x => x.House.Rooms == rooms && x.House.Outstanding == outstanding)
                                                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Property>> SearchOutstandingPropertiesByRoomsAndBathrooms(int rooms, int bathrooms, bool outstanding)
         {
-            return await BahiaContext.Properties.Include(x=>x.House).ThenInclude(x => new { x.PropertyAddresses, x.PropertyPhotos, x.PropertyPrice })
+            return await BahiaContext.Houses.Include(x => x.PropertyAddresses).Include(x => x.PropertyPhotos).Include(x => x.PropertyPrice)
                                         .Where(x => x.House.Rooms == rooms && x.House.Bathrooms == bathrooms && x.House.Outstanding == outstanding)
                                         .ToListAsync();
         }

@@ -9,6 +9,6 @@ namespace Domain.Repositories
 {
     public interface IAsyncPropertyAddressRepository : IAsyncRepository<PropertyAddresses>
     {
-        Task<IEnumerable<Property>> GetByAddress(string address);
+        Task<IEnumerable<PropertyAddresses>> GetByAddress(string address);
     }
 }

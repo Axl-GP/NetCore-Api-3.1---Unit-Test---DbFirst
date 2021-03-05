@@ -13,7 +13,7 @@ namespace MiBahia_Estate.Repositories
 
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity,bool>> predicate);
 
-        Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> SingleOrDefault(Expression<Func<TEntity,bool>> predicate);
 
         Task Add(TEntity entity);
         Task AddRange(IEnumerable<TEntity> entities);
