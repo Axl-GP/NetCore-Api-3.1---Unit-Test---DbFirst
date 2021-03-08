@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Infraestructure.Data.Migrations
+namespace Infraestructure.Migrations
 {
     [DbContext(typeof(bahia_estateContext))]
-    [Migration("20210210153307_Fifth-Migration")]
-    partial class FifthMigration
+    [Migration("20210308033807_useIdentityId-Refactored")]
+    partial class useIdentityIdRefactored
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -137,7 +137,7 @@ namespace Infraestructure.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int")
-                        .HasColumnName("id")
+                        .HasColumnName("Id")
                         .UseIdentityColumn();
 
                     b.Property<int>("CoinId")

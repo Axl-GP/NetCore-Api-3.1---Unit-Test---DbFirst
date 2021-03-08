@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MiBahia_Estate.Data.Migrations
+namespace Infraestructure.Migrations
 {
-    public partial class refacturingDbContext : Migration
+    public partial class useIdentityIdRefactored : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,7 +23,8 @@ namespace MiBahia_Estate.Data.Migrations
                 name: "PropertyType",
                 columns: table => new
                 {
-                    id = table.Column<bool>(type: "bit", nullable: false),
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     type = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: true)
                 },
                 constraints: table =>
@@ -35,8 +36,9 @@ namespace MiBahia_Estate.Data.Migrations
                 name: "Property",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false),
-                    PropertyTypeID = table.Column<bool>(type: "bit", nullable: false),
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PropertyTypeID = table.Column<int>(type: "int", nullable: false),
                     title = table.Column<string>(type: "varchar(80)", unicode: false, maxLength: 80, nullable: false),
                     description = table.Column<string>(type: "varchar(300)", unicode: false, maxLength: 300, nullable: false),
                     area = table.Column<decimal>(type: "decimal(13,2)", nullable: false),
@@ -99,7 +101,7 @@ namespace MiBahia_Estate.Data.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    propertyid = table.Column<int>(type: "int", nullable: true),
+                    propertyid = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "varchar(120)", unicode: false, maxLength: 120, nullable: true)
                 },
                 constraints: table =>
@@ -137,7 +139,7 @@ namespace MiBahia_Estate.Data.Migrations
                 name: "PropertyPrice",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CoinId = table.Column<int>(type: "int", nullable: false),
                     price = table.Column<int>(type: "int", nullable: false),
@@ -145,10 +147,10 @@ namespace MiBahia_Estate.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PropertyPrice", x => x.id);
+                    table.PrimaryKey("PK_PropertyPrice", x => x.Id);
                     table.ForeignKey(
                         name: "PropertyPrice_fk",
-                        column: x => x.id,
+                        column: x => x.Id,
                         principalTable: "Property",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);

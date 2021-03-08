@@ -16,5 +16,9 @@ namespace MiBahia_Estate.Models.Houses
         public bool? ServiceRoom { get; set; }
         public bool? Gym { get; set; }
         public bool? WashingArea { get; set; }
+
+        public ICollection<PropertyAddressesITO> Addresses { get; set; }
+        //public ICollection<PropertyPhotosITO> Photos { get; set; }
+        public PropertyPriceITO Price { get; set; }
     }
 }

@@ -163,10 +163,14 @@ namespace MiBahia_Estate.Controllers
             if (property != null)
             {
                 var houseDB = _mapper.Map<House>(property);
+                var houseAddress = _mapper.Map<IEnumerable<PropertyAddresses>>(property.Addresses);
+                var housePrice = _mapper.Map<PropertyPrice>(property.Price);
+                //var housePhotos = _mapper.Map<IEnumerable<PropertyPhotos>>(property.Photos);
+                
                 await _work.Houses.Add(houseDB);
-                await _work.PropertyPrice.Add(houseDB.PropertyPrice);
-                await _work.PropertyAddress.AddRange(houseDB.PropertyAddresses);
-                await _work.PropertyPhotos.AddImages(houseDB.PropertyPhotos);
+                await _work.PropertyPrice.Add(housePrice);
+                await _work.PropertyAddress.AddRange(houseAddress);
+                //await _work.PropertyPhotos.AddImages(housePhotos);
                 
 
                 await _work.Complete();
@@ -186,10 +190,14 @@ namespace MiBahia_Estate.Controllers
             if (response != null)
             {
                 var propertyDB = _mapper.Map<House>(property);
+                var propertyPrice = _mapper.Map<PropertyPrice>(property.Price);
+                //var propertyPhotos = _mapper.Map<IEnumerable<PropertyPhotos>>(property.Photos);
+                var propertyAddress = _mapper.Map<IEnumerable<PropertyAddresses>>(property.Addresses);
+                
                 response.House = propertyDB.House;
-                response.PropertyAddresses = propertyDB.PropertyAddresses;
-                response.PropertyPrice = propertyDB.PropertyPrice;
-                response.PropertyPhotos = propertyDB.PropertyPhotos;
+                response.PropertyAddresses = (ICollection<PropertyAddresses>)propertyAddress;
+                response.PropertyPrice = propertyPrice;
+                //response.PropertyPhotos = (ICollection<PropertyPhotos>)propertyPhotos;
 
                 await _work.Complete();
                 _work.Dispose();

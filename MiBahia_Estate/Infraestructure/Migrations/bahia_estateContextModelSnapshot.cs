@@ -4,16 +4,14 @@ using MiBahia_Estate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MiBahia_Estate.Data.Migrations
+namespace Infraestructure.Migrations
 {
     [DbContext(typeof(bahia_estateContext))]
-    [Migration("20210203160156_thirdfacturingDbContext")]
-    partial class thirdfacturingDbContext
+    partial class bahia_estateContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,7 +96,7 @@ namespace MiBahia_Estate.Data.Migrations
                         .HasColumnType("varchar(120)")
                         .HasColumnName("Address");
 
-                    b.Property<int?>("PropertyId")
+                    b.Property<int>("PropertyId")
                         .HasColumnType("int")
                         .HasColumnName("propertyid");
 
@@ -137,7 +135,7 @@ namespace MiBahia_Estate.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int")
-                        .HasColumnName("id")
+                        .HasColumnName("Id")
                         .UseIdentityColumn();
 
                     b.Property<int>("CoinId")
@@ -240,7 +238,8 @@ namespace MiBahia_Estate.Data.Migrations
                     b.HasOne("MiBahia_Estate.Property", "Property")
                         .WithMany("PropertyAddresses")
                         .HasForeignKey("PropertyId")
-                        .HasConstraintName("PropertyAddress_fk");
+                        .HasConstraintName("PropertyAddress_fk")
+                        .IsRequired();
 
                     b.Navigation("Property");
                 });
