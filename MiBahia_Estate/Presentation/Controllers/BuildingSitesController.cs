@@ -18,13 +18,12 @@ namespace MiBahia_Estate.Controllers
     {
         private readonly AsyncUnitOfWork _work;
         private readonly IMapper _mapper;
-        private readonly ILogger _logger;
 
-        public BuildingSitesController(AsyncUnitOfWork work, IMapper mapper, ILogger logger)
+        public BuildingSitesController(AsyncUnitOfWork work, IMapper mapper)
         {
             this._work = work;
             this._mapper = mapper;
-            this._logger = logger;
+            
         }
         
        [HttpGet]
@@ -64,7 +63,7 @@ namespace MiBahia_Estate.Controllers
 
        }*/
         [HttpGet("search-buildingSites-by-priceMeter/{minimum:int?}/{maximum:int?}")]
-       public async Task<ActionResult<IEnumerable<BuildingSiteDTO>>> GetBySize(int minimum=0, int maximum = 1800)
+       public async Task<ActionResult<IEnumerable<BuildingSiteDTO>>> GetBySize(int minimum=100, int maximum = 1800)
        {
            var response = await _work.BuildingSites.GetBuildingSitesbySize(minimum, maximum);
            if (response != null)
@@ -92,11 +91,15 @@ namespace MiBahia_Estate.Controllers
        {
             if (buildingSite != null)
             {
+                var buildingSitePrice = _mapper.Map<PropertyPrice>(buildingSite.Price);
+                var buildingSiteAddress = _mapper.Map<IEnumerable<PropertyAddresses>>(buildingSite.Addresses);
+                //var buildingSitePhotos = _mapper.Map<IEnumerable<PropertyPhotos>>(buildingSite.Photos);
                 var buildingSiteDB = _mapper.Map<BuildingSite>(buildingSite);
+                
                 await _work.BuildingSites.Add(buildingSiteDB);
-                await _work.PropertyPrice.Add(buildingSiteDB.PropertyPrice);
-                await _work.PropertyAddress.AddRange(buildingSiteDB.PropertyAddresses);
-                await _work.PropertyPhotos.AddImages(buildingSiteDB.PropertyPhotos);
+                await _work.PropertyAddress.AddRange(buildingSiteAddress);
+                await _work.PropertyPrice.Add(buildingSitePrice);
+                //await _work.PropertyPhotos.AddImages(buildingSitePhotos);
 
                 await _work.Complete();
                 _work.Dispose();

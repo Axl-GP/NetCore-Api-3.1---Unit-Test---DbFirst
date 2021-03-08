@@ -49,7 +49,7 @@ namespace MiBahia_Estate
                 entity.ToTable("Property");
 
                 entity.Property(e => e.Id)
-                        .HasColumnName("id")
+                        .HasColumnName("Id")
                         .UseIdentityColumn();
 
                 entity.Property(e => e.Area)
@@ -129,7 +129,7 @@ namespace MiBahia_Estate
 
                 entity.Property(e => e.Id)
                     .ValueGeneratedNever()
-                    .HasColumnName("id")
+                    .HasColumnName("Id")
                     .UseIdentityColumn();
 
                 entity.Property(e => e.CoinId)

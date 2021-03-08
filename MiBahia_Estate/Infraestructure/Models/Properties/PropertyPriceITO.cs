@@ -8,6 +8,7 @@ namespace MiBahia_Estate.Models.Properties
 {
     public class PropertyPriceITO
     {
+        public int Id { get; set; }
         [Required]
         public int CoinId { get; set; }
         [Required]
